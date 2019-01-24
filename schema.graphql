@@ -24,7 +24,20 @@ type AcknowledgeProgramHealthAcknowledgementPayload implements MutationResult {
   # A unique identifier for the client performing the mutation.
   clientMutationId: String
   deleted_program_health_acknowledgement_id: ID
-  errors(types: [ErrorTypeEnum]): ErrorConnection!
+  errors(
+    # Returns the elements in the list that come after the specified cursor.
+    after: String
+
+    # Returns the elements in the list that come before the specified cursor.
+    before: String
+
+    # Returns the first _n_ elements from the list.
+    first: Int
+
+    # Returns the last _n_ elements from the list.
+    last: Int
+    types: [ErrorTypeEnum]
+  ): ErrorConnection!
   me: User
   was_successful: Boolean!
 }
@@ -839,6 +852,9 @@ type ActivityConnection {
   edges: [ActivityUnionEdge]
   max_updated_at: DateTime
 
+  # A list of nodes.
+  nodes: [ActivityUnion]
+
   # Information to aid in pagination.
   pageInfo: PageInfo!
   total_count: Int!
@@ -967,7 +983,20 @@ input ArchiveStructuredScopeInput {
 type ArchiveStructuredScopePayload implements MutationResult {
   # A unique identifier for the client performing the mutation.
   clientMutationId: String
-  errors(types: [ErrorTypeEnum]): ErrorConnection!
+  errors(
+    # Returns the elements in the list that come after the specified cursor.
+    after: String
+
+    # Returns the elements in the list that come before the specified cursor.
+    before: String
+
+    # Returns the first _n_ elements from the list.
+    first: Int
+
+    # Returns the last _n_ elements from the list.
+    last: Int
+    types: [ErrorTypeEnum]
+  ): ErrorConnection!
   structured_scope: StructuredScope
   was_successful: Boolean!
 }
@@ -1165,6 +1194,9 @@ type BountyConnection {
   # A list of edges.
   edges: [BountyEdge]
 
+  # A list of nodes.
+  nodes: [Bounty]
+
   # Information to aid in pagination.
   pageInfo: PageInfo!
   total_amount: Float!
@@ -1245,6 +1277,9 @@ type BountyTableRowConnection {
   # A list of edges.
   edges: [BountyTableRowEdge]
 
+  # A list of nodes.
+  nodes: [BountyTableRow]
+
   # Information to aid in pagination.
   pageInfo: PageInfo!
   total_count: Int!
@@ -1281,7 +1316,20 @@ input CancelTwoFactorAuthenticationResetInput {
 type CancelTwoFactorAuthenticationResetPayload implements MutationResult {
   # A unique identifier for the client performing the mutation.
   clientMutationId: String
-  errors(types: [ErrorTypeEnum]): ErrorConnection!
+  errors(
+    # Returns the elements in the list that come after the specified cursor.
+    after: String
+
+    # Returns the elements in the list that come before the specified cursor.
+    before: String
+
+    # Returns the first _n_ elements from the list.
+    first: Int
+
+    # Returns the last _n_ elements from the list.
+    last: Int
+    types: [ErrorTypeEnum]
+  ): ErrorConnection!
   success: Boolean!
   was_successful: Boolean!
 }
@@ -1304,7 +1352,20 @@ input ClaimCredentialInput {
 type ClaimCredentialPayload implements MutationResult {
   # A unique identifier for the client performing the mutation.
   clientMutationId: String
-  errors(types: [ErrorTypeEnum]): ErrorConnection!
+  errors(
+    # Returns the elements in the list that come after the specified cursor.
+    after: String
+
+    # Returns the elements in the list that come before the specified cursor.
+    before: String
+
+    # Returns the first _n_ elements from the list.
+    first: Int
+
+    # Returns the last _n_ elements from the list.
+    last: Int
+    types: [ErrorTypeEnum]
+  ): ErrorConnection!
   team: Team
   was_successful: Boolean!
 }
@@ -1320,7 +1381,20 @@ input ClaimReportInput {
 type ClaimReportPayload implements MutationResult {
   # A unique identifier for the client performing the mutation.
   clientMutationId: String
-  errors(types: [ErrorTypeEnum]): ErrorConnection!
+  errors(
+    # Returns the elements in the list that come after the specified cursor.
+    after: String
+
+    # Returns the elements in the list that come before the specified cursor.
+    before: String
+
+    # Returns the first _n_ elements from the list.
+    first: Int
+
+    # Returns the last _n_ elements from the list.
+    last: Int
+    types: [ErrorTypeEnum]
+  ): ErrorConnection!
   report: Report
   was_successful: Boolean!
 }
@@ -1354,6 +1428,9 @@ type ClusterConnection {
   # A list of edges.
   edges: [ClusterEdge]
 
+  # A list of nodes.
+  nodes: [Cluster]
+
   # Information to aid in pagination.
   pageInfo: PageInfo!
   total_count: Int!
@@ -1382,6 +1459,9 @@ enum ClusterOrderField {
 type ClusterWeaknessConnection {
   # A list of edges.
   edges: [ClusterWeaknessEdge]
+
+  # A list of nodes.
+  nodes: [Weakness]
 
   # Information to aid in pagination.
   pageInfo: PageInfo!
@@ -1422,6 +1502,9 @@ type CommonResponse implements Node {
 type CommonResponseConnection {
   # A list of edges.
   edges: [CommonResponseEdge]
+
+  # A list of nodes.
+  nodes: [CommonResponse]
 
   # Information to aid in pagination.
   pageInfo: PageInfo!
@@ -1464,7 +1547,20 @@ input CompleteReportRetestUserInput {
 type CompleteReportRetestUserPayload implements MutationResult {
   # A unique identifier for the client performing the mutation.
   clientMutationId: String
-  errors(types: [ErrorTypeEnum]): ErrorConnection!
+  errors(
+    # Returns the elements in the list that come after the specified cursor.
+    after: String
+
+    # Returns the elements in the list that come before the specified cursor.
+    before: String
+
+    # Returns the first _n_ elements from the list.
+    first: Int
+
+    # Returns the last _n_ elements from the list.
+    last: Int
+    types: [ErrorTypeEnum]
+  ): ErrorConnection!
   report_retest_user: ReportRetestUser
   was_successful: Boolean!
 }
@@ -1491,12 +1587,37 @@ input CreateActivityCommentInput {
 
 # Autogenerated return type of CreateActivityComment
 type CreateActivityCommentPayload implements MutationResult {
-  activities: ActivityConnection
+  activities(
+    # Returns the elements in the list that come after the specified cursor.
+    after: String
+
+    # Returns the elements in the list that come before the specified cursor.
+    before: String
+
+    # Returns the first _n_ elements from the list.
+    first: Int
+
+    # Returns the last _n_ elements from the list.
+    last: Int
+  ): ActivityConnection
   activity: ActivitiesComment
 
   # A unique identifier for the client performing the mutation.
   clientMutationId: String
-  errors(types: [ErrorTypeEnum]): ErrorConnection!
+  errors(
+    # Returns the elements in the list that come after the specified cursor.
+    after: String
+
+    # Returns the elements in the list that come before the specified cursor.
+    before: String
+
+    # Returns the first _n_ elements from the list.
+    first: Int
+
+    # Returns the last _n_ elements from the list.
+    last: Int
+    types: [ErrorTypeEnum]
+  ): ErrorConnection!
   new_activity: ActivityUnionEdge
   report: Report
   was_successful: Boolean!
@@ -1519,7 +1640,20 @@ type CreateBountyPayload implements MutationResult {
 
   # A unique identifier for the client performing the mutation.
   clientMutationId: String
-  errors(types: [ErrorTypeEnum]): ErrorConnection!
+  errors(
+    # Returns the elements in the list that come after the specified cursor.
+    after: String
+
+    # Returns the elements in the list that come before the specified cursor.
+    before: String
+
+    # Returns the first _n_ elements from the list.
+    first: Int
+
+    # Returns the last _n_ elements from the list.
+    last: Int
+    types: [ErrorTypeEnum]
+  ): ErrorConnection!
   was_successful: Boolean!
 }
 
@@ -1554,7 +1688,20 @@ input CreateCoinbasePayoutPreferenceInput {
 type CreateCoinbasePayoutPreferencePayload implements MutationResult {
   # A unique identifier for the client performing the mutation.
   clientMutationId: String
-  errors(types: [ErrorTypeEnum]): ErrorConnection!
+  errors(
+    # Returns the elements in the list that come after the specified cursor.
+    after: String
+
+    # Returns the elements in the list that come before the specified cursor.
+    before: String
+
+    # Returns the first _n_ elements from the list.
+    first: Int
+
+    # Returns the last _n_ elements from the list.
+    last: Int
+    types: [ErrorTypeEnum]
+  ): ErrorConnection!
   me: User
   was_successful: Boolean!
 }
@@ -1577,7 +1724,20 @@ input CreateCurrencycloudBankTransferPayoutPreferenceInput {
 type CreateCurrencycloudBankTransferPayoutPreferencePayload implements MutationResult {
   # A unique identifier for the client performing the mutation.
   clientMutationId: String
-  errors(types: [ErrorTypeEnum]): ErrorConnection!
+  errors(
+    # Returns the elements in the list that come after the specified cursor.
+    after: String
+
+    # Returns the elements in the list that come before the specified cursor.
+    before: String
+
+    # Returns the first _n_ elements from the list.
+    first: Int
+
+    # Returns the last _n_ elements from the list.
+    last: Int
+    types: [ErrorTypeEnum]
+  ): ErrorConnection!
   me: User
   was_successful: Boolean!
 }
@@ -1600,8 +1760,33 @@ input CreateCveRequestInput {
 type CreateCveRequestPayload implements MutationResult {
   # A unique identifier for the client performing the mutation.
   clientMutationId: String
-  cve_requests: CveRequestsConnection
-  errors(types: [ErrorTypeEnum]): ErrorConnection!
+  cve_requests(
+    # Returns the elements in the list that come after the specified cursor.
+    after: String
+
+    # Returns the elements in the list that come before the specified cursor.
+    before: String
+
+    # Returns the first _n_ elements from the list.
+    first: Int
+
+    # Returns the last _n_ elements from the list.
+    last: Int
+  ): CveRequestsConnection
+  errors(
+    # Returns the elements in the list that come after the specified cursor.
+    after: String
+
+    # Returns the elements in the list that come before the specified cursor.
+    before: String
+
+    # Returns the first _n_ elements from the list.
+    first: Int
+
+    # Returns the last _n_ elements from the list.
+    last: Int
+    types: [ErrorTypeEnum]
+  ): ErrorConnection!
   new_cve_request: CveRequestEdge
   team: Team
   was_successful: Boolean!
@@ -1626,9 +1811,34 @@ input CreateExternalReportInput {
 type CreateExternalReportPayload implements MutationResult {
   # A unique identifier for the client performing the mutation.
   clientMutationId: String
-  errors(types: [ErrorTypeEnum]): ErrorConnection!
+  errors(
+    # Returns the elements in the list that come after the specified cursor.
+    after: String
+
+    # Returns the elements in the list that come before the specified cursor.
+    before: String
+
+    # Returns the first _n_ elements from the list.
+    first: Int
+
+    # Returns the last _n_ elements from the list.
+    last: Int
+    types: [ErrorTypeEnum]
+  ): ErrorConnection!
   new_report: ReportEdge
-  reports: ReportConnection
+  reports(
+    # Returns the elements in the list that come after the specified cursor.
+    after: String
+
+    # Returns the elements in the list that come before the specified cursor.
+    before: String
+
+    # Returns the first _n_ elements from the list.
+    first: Int
+
+    # Returns the last _n_ elements from the list.
+    last: Int
+  ): ReportConnection
   team: Team
   was_successful: Boolean!
 }
@@ -1694,7 +1904,20 @@ input CreateLeaveProgramSurveyAnswerInput {
 type CreateLeaveProgramSurveyAnswerPayload implements MutationResult {
   # A unique identifier for the client performing the mutation.
   clientMutationId: String
-  errors(types: [ErrorTypeEnum]): ErrorConnection!
+  errors(
+    # Returns the elements in the list that come after the specified cursor.
+    after: String
+
+    # Returns the elements in the list that come before the specified cursor.
+    before: String
+
+    # Returns the first _n_ elements from the list.
+    first: Int
+
+    # Returns the last _n_ elements from the list.
+    last: Int
+    types: [ErrorTypeEnum]
+  ): ErrorConnection!
   me: User
   was_successful: Boolean!
 }
@@ -1717,7 +1940,20 @@ input CreateMailingAddressInput {
 type CreateMailingAddressPayload implements MutationResult {
   # A unique identifier for the client performing the mutation.
   clientMutationId: String
-  errors(types: [ErrorTypeEnum]): ErrorConnection!
+  errors(
+    # Returns the elements in the list that come after the specified cursor.
+    after: String
+
+    # Returns the elements in the list that come before the specified cursor.
+    before: String
+
+    # Returns the first _n_ elements from the list.
+    first: Int
+
+    # Returns the last _n_ elements from the list.
+    last: Int
+    types: [ErrorTypeEnum]
+  ): ErrorConnection!
   me: User
   was_successful: Boolean!
 }
@@ -1755,6 +1991,7 @@ input CreateOrUpdateJiraIntegrationInput {
   issue_type: Int!
   labels: String
   pid: Int!
+  project_selection_enabled: Boolean
   summary: String!
   team_id: ID!
 }
@@ -1763,7 +2000,20 @@ input CreateOrUpdateJiraIntegrationInput {
 type CreateOrUpdateJiraIntegrationPayload implements MutationResult {
   # A unique identifier for the client performing the mutation.
   clientMutationId: String
-  errors(types: [ErrorTypeEnum]): ErrorConnection!
+  errors(
+    # Returns the elements in the list that come after the specified cursor.
+    after: String
+
+    # Returns the elements in the list that come before the specified cursor.
+    before: String
+
+    # Returns the first _n_ elements from the list.
+    first: Int
+
+    # Returns the last _n_ elements from the list.
+    last: Int
+    types: [ErrorTypeEnum]
+  ): ErrorConnection!
   team: Team
   was_successful: Boolean!
 }
@@ -1780,7 +2030,20 @@ input CreatePaypalPreferenceInput {
 type CreatePaypalPreferencePayload implements MutationResult {
   # A unique identifier for the client performing the mutation.
   clientMutationId: String
-  errors(types: [ErrorTypeEnum]): ErrorConnection!
+  errors(
+    # Returns the elements in the list that come after the specified cursor.
+    after: String
+
+    # Returns the elements in the list that come before the specified cursor.
+    before: String
+
+    # Returns the first _n_ elements from the list.
+    first: Int
+
+    # Returns the last _n_ elements from the list.
+    last: Int
+    types: [ErrorTypeEnum]
+  ): ErrorConnection!
   me: User
   was_successful: Boolean!
 }
@@ -1818,7 +2081,20 @@ input CreateRejectionSurveyAnswerInput {
 type CreateRejectionSurveyAnswerPayload implements MutationResult {
   # A unique identifier for the client performing the mutation.
   clientMutationId: String
-  errors(types: [ErrorTypeEnum]): ErrorConnection!
+  errors(
+    # Returns the elements in the list that come after the specified cursor.
+    after: String
+
+    # Returns the elements in the list that come before the specified cursor.
+    before: String
+
+    # Returns the first _n_ elements from the list.
+    first: Int
+
+    # Returns the last _n_ elements from the list.
+    last: Int
+    types: [ErrorTypeEnum]
+  ): ErrorConnection!
   me: User
   was_successful: Boolean!
 }
@@ -1840,7 +2116,20 @@ input CreateReportInput {
 type CreateReportPayload implements MutationResult {
   # A unique identifier for the client performing the mutation.
   clientMutationId: String
-  errors(types: [ErrorTypeEnum]): ErrorConnection!
+  errors(
+    # Returns the elements in the list that come after the specified cursor.
+    after: String
+
+    # Returns the elements in the list that come before the specified cursor.
+    before: String
+
+    # Returns the first _n_ elements from the list.
+    first: Int
+
+    # Returns the last _n_ elements from the list.
+    last: Int
+    types: [ErrorTypeEnum]
+  ): ErrorConnection!
   report: Report
   was_successful: Boolean!
 }
@@ -1857,7 +2146,20 @@ input CreateReportSummaryInput {
 type CreateReportSummaryPayload implements MutationResult {
   # A unique identifier for the client performing the mutation.
   clientMutationId: String
-  errors(types: [ErrorTypeEnum]): ErrorConnection!
+  errors(
+    # Returns the elements in the list that come after the specified cursor.
+    after: String
+
+    # Returns the elements in the list that come before the specified cursor.
+    before: String
+
+    # Returns the first _n_ elements from the list.
+    first: Int
+
+    # Returns the last _n_ elements from the list.
+    last: Int
+    types: [ErrorTypeEnum]
+  ): ErrorConnection!
   report_summary: Summary
   was_successful: Boolean!
 }
@@ -1897,9 +2199,34 @@ input CreateSlackPipelineInput {
 type CreateSlackPipelinePayload implements MutationResult {
   # A unique identifier for the client performing the mutation.
   clientMutationId: String
-  errors(types: [ErrorTypeEnum]): ErrorConnection!
+  errors(
+    # Returns the elements in the list that come after the specified cursor.
+    after: String
+
+    # Returns the elements in the list that come before the specified cursor.
+    before: String
+
+    # Returns the first _n_ elements from the list.
+    first: Int
+
+    # Returns the last _n_ elements from the list.
+    last: Int
+    types: [ErrorTypeEnum]
+  ): ErrorConnection!
   new_slack_pipeline: SlackPipelineEdge
-  slack_pipelines: SlackPipelineConnection
+  slack_pipelines(
+    # Returns the elements in the list that come after the specified cursor.
+    after: String
+
+    # Returns the elements in the list that come before the specified cursor.
+    before: String
+
+    # Returns the first _n_ elements from the list.
+    first: Int
+
+    # Returns the last _n_ elements from the list.
+    last: Int
+  ): SlackPipelineConnection
   team: Team!
   was_successful: Boolean!
 }
@@ -1925,9 +2252,34 @@ input CreateStructuredScopeInput {
 type CreateStructuredScopePayload implements MutationResult {
   # A unique identifier for the client performing the mutation.
   clientMutationId: String
-  errors(types: [ErrorTypeEnum]): ErrorConnection!
+  errors(
+    # Returns the elements in the list that come after the specified cursor.
+    after: String
+
+    # Returns the elements in the list that come before the specified cursor.
+    before: String
+
+    # Returns the first _n_ elements from the list.
+    first: Int
+
+    # Returns the last _n_ elements from the list.
+    last: Int
+    types: [ErrorTypeEnum]
+  ): ErrorConnection!
   new_structured_scope: StructuredScopeEdge
-  structured_scopes: StructuredScopeConnection
+  structured_scopes(
+    # Returns the elements in the list that come after the specified cursor.
+    after: String
+
+    # Returns the elements in the list that come before the specified cursor.
+    before: String
+
+    # Returns the first _n_ elements from the list.
+    first: Int
+
+    # Returns the last _n_ elements from the list.
+    last: Int
+  ): StructuredScopeConnection
   team: Team!
   was_successful: Boolean!
 }
@@ -1958,7 +2310,20 @@ input CreateTaxFormInput {
 type CreateTaxFormPayload implements MutationResult {
   # A unique identifier for the client performing the mutation.
   clientMutationId: String
-  errors(types: [ErrorTypeEnum]): ErrorConnection!
+  errors(
+    # Returns the elements in the list that come after the specified cursor.
+    after: String
+
+    # Returns the elements in the list that come before the specified cursor.
+    before: String
+
+    # Returns the first _n_ elements from the list.
+    first: Int
+
+    # Returns the last _n_ elements from the list.
+    last: Int
+    types: [ErrorTypeEnum]
+  ): ErrorConnection!
   me: User
   was_successful: Boolean!
 }
@@ -1979,10 +2344,35 @@ input CreateTriggerInput {
 type CreateTriggerPayload implements MutationResult {
   # A unique identifier for the client performing the mutation.
   clientMutationId: String
-  errors(types: [ErrorTypeEnum]): ErrorConnection!
+  errors(
+    # Returns the elements in the list that come after the specified cursor.
+    after: String
+
+    # Returns the elements in the list that come before the specified cursor.
+    before: String
+
+    # Returns the first _n_ elements from the list.
+    first: Int
+
+    # Returns the last _n_ elements from the list.
+    last: Int
+    types: [ErrorTypeEnum]
+  ): ErrorConnection!
   new_trigger: TriggerEdge
   team: Team
-  triggers: TriggerConnection
+  triggers(
+    # Returns the elements in the list that come after the specified cursor.
+    after: String
+
+    # Returns the elements in the list that come before the specified cursor.
+    before: String
+
+    # Returns the first _n_ elements from the list.
+    first: Int
+
+    # Returns the last _n_ elements from the list.
+    last: Int
+  ): TriggerConnection
   was_successful: Boolean!
 }
 
@@ -1996,7 +2386,20 @@ input CreateTwoFactorAuthenticationCredentialsInput {
 type CreateTwoFactorAuthenticationCredentialsPayload implements MutationResult {
   # A unique identifier for the client performing the mutation.
   clientMutationId: String
-  errors(types: [ErrorTypeEnum]): ErrorConnection!
+  errors(
+    # Returns the elements in the list that come after the specified cursor.
+    after: String
+
+    # Returns the elements in the list that come before the specified cursor.
+    before: String
+
+    # Returns the first _n_ elements from the list.
+    first: Int
+
+    # Returns the last _n_ elements from the list.
+    last: Int
+    types: [ErrorTypeEnum]
+  ): ErrorConnection!
   me: User
   two_factor_authentication_credentials: TwoFactorAuthenticationCredentials
   was_successful: Boolean!
@@ -2046,7 +2449,20 @@ input CreateUserTwoFactorResetInput {
 type CreateUserTwoFactorResetPayload implements MutationResult {
   # A unique identifier for the client performing the mutation.
   clientMutationId: String
-  errors(types: [ErrorTypeEnum]): ErrorConnection!
+  errors(
+    # Returns the elements in the list that come after the specified cursor.
+    after: String
+
+    # Returns the elements in the list that come before the specified cursor.
+    before: String
+
+    # Returns the first _n_ elements from the list.
+    first: Int
+
+    # Returns the last _n_ elements from the list.
+    last: Int
+    types: [ErrorTypeEnum]
+  ): ErrorConnection!
   success: Boolean!
   was_successful: Boolean!
 }
@@ -2061,7 +2477,20 @@ input CreateVpnCredentialsInput {
 type CreateVpnCredentialsPayload implements MutationResult {
   # A unique identifier for the client performing the mutation.
   clientMutationId: String
-  errors(types: [ErrorTypeEnum]): ErrorConnection!
+  errors(
+    # Returns the elements in the list that come after the specified cursor.
+    after: String
+
+    # Returns the elements in the list that come before the specified cursor.
+    before: String
+
+    # Returns the first _n_ elements from the list.
+    first: Int
+
+    # Returns the last _n_ elements from the list.
+    last: Int
+    types: [ErrorTypeEnum]
+  ): ErrorConnection!
   me: User
   was_successful: Boolean!
 }
@@ -2080,6 +2509,9 @@ type Credential implements Node {
 type CredentialConnection {
   # A list of edges.
   edges: [CredentialEdge]
+
+  # A list of nodes.
+  nodes: [Credential]
 
   # Information to aid in pagination.
   pageInfo: PageInfo!
@@ -2173,6 +2605,9 @@ type CveRequestsConnection {
   # A list of edges.
   edges: [CveRequestEdge]
 
+  # A list of nodes.
+  nodes: [CveRequest]
+
   # Information to aid in pagination.
   pageInfo: PageInfo!
   total_count: Int!
@@ -2231,7 +2666,20 @@ input DeleteMailingAddressInput {
 type DeleteMailingAddressPayload implements MutationResult {
   # A unique identifier for the client performing the mutation.
   clientMutationId: String
-  errors(types: [ErrorTypeEnum]): ErrorConnection!
+  errors(
+    # Returns the elements in the list that come after the specified cursor.
+    after: String
+
+    # Returns the elements in the list that come before the specified cursor.
+    before: String
+
+    # Returns the first _n_ elements from the list.
+    first: Int
+
+    # Returns the last _n_ elements from the list.
+    last: Int
+    types: [ErrorTypeEnum]
+  ): ErrorConnection!
   me: User
   was_successful: Boolean!
 }
@@ -2262,7 +2710,20 @@ type DeleteSlackPipelinePayload implements MutationResult {
   # A unique identifier for the client performing the mutation.
   clientMutationId: String
   deleted_slack_pipeline_id: ID
-  errors(types: [ErrorTypeEnum]): ErrorConnection!
+  errors(
+    # Returns the elements in the list that come after the specified cursor.
+    after: String
+
+    # Returns the elements in the list that come before the specified cursor.
+    before: String
+
+    # Returns the first _n_ elements from the list.
+    first: Int
+
+    # Returns the last _n_ elements from the list.
+    last: Int
+    types: [ErrorTypeEnum]
+  ): ErrorConnection!
   team: Team
   was_successful: Boolean!
 }
@@ -2279,7 +2740,20 @@ type DeleteTeamMemberPayload implements MutationResult {
   # A unique identifier for the client performing the mutation.
   clientMutationId: String
   deleted_team_member_id: ID
-  errors(types: [ErrorTypeEnum]): ErrorConnection!
+  errors(
+    # Returns the elements in the list that come after the specified cursor.
+    after: String
+
+    # Returns the elements in the list that come before the specified cursor.
+    before: String
+
+    # Returns the first _n_ elements from the list.
+    first: Int
+
+    # Returns the last _n_ elements from the list.
+    last: Int
+    types: [ErrorTypeEnum]
+  ): ErrorConnection!
   me: User
   was_successful: Boolean!
 }
@@ -2310,7 +2784,20 @@ type DeleteTriggerPayload implements MutationResult {
   # A unique identifier for the client performing the mutation.
   clientMutationId: String
   deleted_trigger_id: ID
-  errors(types: [ErrorTypeEnum]): ErrorConnection!
+  errors(
+    # Returns the elements in the list that come after the specified cursor.
+    after: String
+
+    # Returns the elements in the list that come before the specified cursor.
+    before: String
+
+    # Returns the first _n_ elements from the list.
+    first: Int
+
+    # Returns the last _n_ elements from the list.
+    last: Int
+    types: [ErrorTypeEnum]
+  ): ErrorConnection!
   team: Team
   was_successful: Boolean!
 }
@@ -2340,7 +2827,20 @@ input DeleteUserSessionInput {
 type DeleteUserSessionPayload implements MutationResult {
   # A unique identifier for the client performing the mutation.
   clientMutationId: String
-  errors(types: [ErrorTypeEnum]): ErrorConnection!
+  errors(
+    # Returns the elements in the list that come after the specified cursor.
+    after: String
+
+    # Returns the elements in the list that come before the specified cursor.
+    before: String
+
+    # Returns the first _n_ elements from the list.
+    first: Int
+
+    # Returns the last _n_ elements from the list.
+    last: Int
+    types: [ErrorTypeEnum]
+  ): ErrorConnection!
   user_session: UserSession
   was_successful: Boolean!
 }
@@ -2349,6 +2849,9 @@ type DeleteUserSessionPayload implements MutationResult {
 type DeprecatedTeamWeaknessConnection {
   # A list of edges.
   edges: [DeprecatedTeamWeaknessEdge]
+
+  # A list of nodes.
+  nodes: [Weakness]
 
   # Information to aid in pagination.
   pageInfo: PageInfo!
@@ -2377,8 +2880,51 @@ input DestroyTwoFactorAuthenticationCredentialsInput {
 type DestroyTwoFactorAuthenticationCredentialsPayload implements MutationResult {
   # A unique identifier for the client performing the mutation.
   clientMutationId: String
-  errors(types: [ErrorTypeEnum]): ErrorConnection!
+  errors(
+    # Returns the elements in the list that come after the specified cursor.
+    after: String
+
+    # Returns the elements in the list that come before the specified cursor.
+    before: String
+
+    # Returns the first _n_ elements from the list.
+    first: Int
+
+    # Returns the last _n_ elements from the list.
+    last: Int
+    types: [ErrorTypeEnum]
+  ): ErrorConnection!
   me: User
+  was_successful: Boolean!
+}
+
+# Autogenerated input type of DestroyUpvote
+input DestroyUpvoteInput {
+  # A unique identifier for the client performing the mutation.
+  clientMutationId: String
+  hacktivity_item_id: ID!
+}
+
+# Autogenerated return type of DestroyUpvote
+type DestroyUpvotePayload implements MutationResult {
+  # A unique identifier for the client performing the mutation.
+  clientMutationId: String
+  deleted_vote_id: ID
+  errors(
+    # Returns the elements in the list that come after the specified cursor.
+    after: String
+
+    # Returns the elements in the list that come before the specified cursor.
+    before: String
+
+    # Returns the first _n_ elements from the list.
+    first: Int
+
+    # Returns the last _n_ elements from the list.
+    last: Int
+    types: [ErrorTypeEnum]
+  ): ErrorConnection!
+  hacktivity_item: HacktivityItemInterface
   was_successful: Boolean!
 }
 
@@ -2394,7 +2940,20 @@ type DismissProgramHealthAcknowledgementPayload implements MutationResult {
   # A unique identifier for the client performing the mutation.
   clientMutationId: String
   deleted_program_health_acknowledgement_id: ID
-  errors(types: [ErrorTypeEnum]): ErrorConnection!
+  errors(
+    # Returns the elements in the list that come after the specified cursor.
+    after: String
+
+    # Returns the elements in the list that come before the specified cursor.
+    before: String
+
+    # Returns the first _n_ elements from the list.
+    first: Int
+
+    # Returns the last _n_ elements from the list.
+    last: Int
+    types: [ErrorTypeEnum]
+  ): ErrorConnection!
   me: User
   was_successful: Boolean!
 }
@@ -2409,9 +2968,12 @@ type EmbeddedSubmissionDomain {
 }
 
 # The connection type for EmbeddedSubmissionDomain.
-type EmbeddedSubmissionDomainConnectionType {
+type EmbeddedSubmissionDomainConnection {
   # A list of edges.
   edges: [EmbeddedSubmissionDomainEdge]
+
+  # A list of nodes.
+  nodes: [EmbeddedSubmissionDomain]
 
   # Information to aid in pagination.
   pageInfo: PageInfo!
@@ -2435,9 +2997,12 @@ type EmbeddedSubmissionForm implements Node {
 }
 
 # The connection type for EmbeddedSubmissionForm.
-type EmbeddedSubmissionFormConnectionType {
+type EmbeddedSubmissionFormConnection {
   # A list of edges.
   edges: [EmbeddedSubmissionFormEdge]
+
+  # A list of nodes.
+  nodes: [EmbeddedSubmissionForm]
 
   # Information to aid in pagination.
   pageInfo: PageInfo!
@@ -2480,6 +3045,9 @@ type ErrorConnection {
   # A list of edges.
   edges: [ErrorEdge]
 
+  # A list of nodes.
+  nodes: [Error]
+
   # Information to aid in pagination.
   pageInfo: PageInfo!
   total_count: Int!
@@ -2513,7 +3081,20 @@ input ExportLifetimeReportsInput {
 type ExportLifetimeReportsPayload implements MutationResult {
   # A unique identifier for the client performing the mutation.
   clientMutationId: String
-  errors(types: [ErrorTypeEnum]): ErrorConnection!
+  errors(
+    # Returns the elements in the list that come after the specified cursor.
+    after: String
+
+    # Returns the elements in the list that come before the specified cursor.
+    before: String
+
+    # Returns the first _n_ elements from the list.
+    first: Int
+
+    # Returns the last _n_ elements from the list.
+    last: Int
+    types: [ErrorTypeEnum]
+  ): ErrorConnection!
   was_successful: Boolean!
 }
 
@@ -2686,6 +3267,7 @@ input FiltersTeamFilterInput {
   name: StringPredicateInput
   offers_bounties: BooleanPredicateInput
   policy: StringPredicateInput
+  reporters: FiltersUserFilterInput
   response_efficiency_percentage: IntPredicateInput
   state: TeamStatePredicateInput
   structured_scopes: FiltersStructuredScopeFilterInput
@@ -2737,7 +3319,20 @@ input ForgetFacebookCredentialInput {
 type ForgetFacebookCredentialPayload implements MutationResult {
   # A unique identifier for the client performing the mutation.
   clientMutationId: String
-  errors(types: [ErrorTypeEnum]): ErrorConnection!
+  errors(
+    # Returns the elements in the list that come after the specified cursor.
+    after: String
+
+    # Returns the elements in the list that come before the specified cursor.
+    before: String
+
+    # Returns the first _n_ elements from the list.
+    first: Int
+
+    # Returns the last _n_ elements from the list.
+    last: Int
+    types: [ErrorTypeEnum]
+  ): ErrorConnection!
   me: User
   was_successful: Boolean!
 }
@@ -2766,8 +3361,7 @@ type HackerInvitationsProfile implements Node {
 }
 
 # A HacktivityItems::HackerPublished for a report
-type HackerPublished implements HacktivityItemInterface & Node & ResourceInterface {
-  # The primary key from the database
+type HackerPublished implements HacktivityItemInterface & Node {
   _id: ID!
   created_at: DateTime
   id: ID!
@@ -2776,7 +3370,20 @@ type HackerPublished implements HacktivityItemInterface & Node & ResourceInterfa
   reporter: User
   severity_rating: SeverityRatingEnum
   team: Team
-  url: URI!
+  upvoted_by_current_user: Boolean!
+  votes(
+    # Returns the elements in the list that come after the specified cursor.
+    after: String
+
+    # Returns the elements in the list that come before the specified cursor.
+    before: String
+
+    # Returns the first _n_ elements from the list.
+    first: Int
+
+    # Returns the last _n_ elements from the list.
+    last: Int
+  ): VoteConnection
 }
 
 # A HackeronePayroll Payout Preference
@@ -2799,9 +3406,12 @@ type HackeroneToJiraEventsConfiguration implements Node {
 }
 
 # The connection type for HacktivityItemUnion.
-type HacktivityItemConnectionType {
+type HacktivityItemConnection {
   # A list of edges.
   edges: [HacktivityItemUnionEdge]
+
+  # A list of nodes.
+  nodes: [HacktivityItemUnion]
 
   # Information to aid in pagination.
   pageInfo: PageInfo!
@@ -2810,10 +3420,23 @@ type HacktivityItemConnectionType {
 
 # A HackerOne hacktivity item interface
 interface HacktivityItemInterface {
-  # The primary key from the database
   _id: ID!
   created_at: DateTime
   id: ID!
+  upvoted_by_current_user: Boolean!
+  votes(
+    # Returns the elements in the list that come after the specified cursor.
+    after: String
+
+    # Returns the elements in the list that come before the specified cursor.
+    before: String
+
+    # Returns the first _n_ elements from the list.
+    first: Int
+
+    # Returns the last _n_ elements from the list.
+    last: Int
+  ): VoteConnection
 }
 
 input HacktivityItemOrderInput {
@@ -2885,6 +3508,9 @@ type InvitationQueueConnection {
   # A list of edges.
   edges: [InvitationQueueEdge]
 
+  # A list of nodes.
+  nodes: [InvitationQueue]
+
   # Information to aid in pagination.
   pageInfo: PageInfo!
   total_count: Int!
@@ -2934,6 +3560,9 @@ type InvitationUnionConnection {
   # A list of edges.
   edges: [InvitationUnionEdge]
 
+  # A list of nodes.
+  nodes: [InvitationUnion]
+
   # Information to aid in pagination.
   pageInfo: PageInfo!
   total_count: Int!
@@ -2946,6 +3575,17 @@ type InvitationUnionEdge {
 
   # The item at the end of the edge.
   node: InvitationUnion
+}
+
+# An invitation to perform a retest of a report
+type InvitationsRetest implements InvitationInterface & Node {
+  _id: ID!
+  accepted_at: DateTime
+  expires_at: DateTime
+  id: ID!
+  report: Report!
+  team: Team!
+  token: String
 }
 
 # An invitation to join a private team as a hacker
@@ -2981,6 +3621,7 @@ type JiraIntegration implements Node {
   issue_type: Int!
   labels: String
   pid: Int!
+  project_selection_enabled: Boolean!
   summary: String!
   team: Team!
   updated_at: DateTime!
@@ -3033,7 +3674,20 @@ input LaunchTeamInput {
 type LaunchTeamPayload implements MutationResult {
   # A unique identifier for the client performing the mutation.
   clientMutationId: String
-  errors(types: [ErrorTypeEnum]): ErrorConnection!
+  errors(
+    # Returns the elements in the list that come after the specified cursor.
+    after: String
+
+    # Returns the elements in the list that come before the specified cursor.
+    before: String
+
+    # Returns the first _n_ elements from the list.
+    first: Int
+
+    # Returns the last _n_ elements from the list.
+    last: Int
+    types: [ErrorTypeEnum]
+  ): ErrorConnection!
   sent: Int!
   skipped: Int!
   team: Team
@@ -3051,7 +3705,20 @@ input LaunchTeamPubliclyInput {
 type LaunchTeamPubliclyPayload implements MutationResult {
   # A unique identifier for the client performing the mutation.
   clientMutationId: String
-  errors(types: [ErrorTypeEnum]): ErrorConnection!
+  errors(
+    # Returns the elements in the list that come after the specified cursor.
+    after: String
+
+    # Returns the elements in the list that come before the specified cursor.
+    before: String
+
+    # Returns the first _n_ elements from the list.
+    first: Int
+
+    # Returns the last _n_ elements from the list.
+    last: Int
+    types: [ErrorTypeEnum]
+  ): ErrorConnection!
   team: Team
   was_successful: Boolean!
 }
@@ -3067,7 +3734,20 @@ input LeavePrivateProgramInput {
 type LeavePrivateProgramPayload implements MutationResult {
   # A unique identifier for the client performing the mutation.
   clientMutationId: String
-  errors(types: [ErrorTypeEnum]): ErrorConnection!
+  errors(
+    # Returns the elements in the list that come after the specified cursor.
+    after: String
+
+    # Returns the elements in the list that come before the specified cursor.
+    before: String
+
+    # Returns the first _n_ elements from the list.
+    first: Int
+
+    # Returns the last _n_ elements from the list.
+    last: Int
+    types: [ErrorTypeEnum]
+  ): ErrorConnection!
   me: User
   was_successful: Boolean!
 }
@@ -3081,12 +3761,37 @@ input LockReportInput {
 
 # Autogenerated return type of LockReport
 type LockReportPayload implements MutationResult {
-  activities: ActivityConnection
+  activities(
+    # Returns the elements in the list that come after the specified cursor.
+    after: String
+
+    # Returns the elements in the list that come before the specified cursor.
+    before: String
+
+    # Returns the first _n_ elements from the list.
+    first: Int
+
+    # Returns the last _n_ elements from the list.
+    last: Int
+  ): ActivityConnection
   activity: ActivitiesComment
 
   # A unique identifier for the client performing the mutation.
   clientMutationId: String
-  errors(types: [ErrorTypeEnum]): ErrorConnection!
+  errors(
+    # Returns the elements in the list that come after the specified cursor.
+    after: String
+
+    # Returns the elements in the list that come before the specified cursor.
+    before: String
+
+    # Returns the first _n_ elements from the list.
+    first: Int
+
+    # Returns the last _n_ elements from the list.
+    last: Int
+    types: [ErrorTypeEnum]
+  ): ErrorConnection!
   new_activity: ActivityUnionEdge
   report: Report
   was_successful: Boolean!
@@ -3114,7 +3819,20 @@ input MarkReportAsNeedsMoreInfoInput {
 type MarkReportAsNeedsMoreInfoPayload implements MutationResult {
   # A unique identifier for the client performing the mutation.
   clientMutationId: String
-  errors(types: [ErrorTypeEnum]): ErrorConnection!
+  errors(
+    # Returns the elements in the list that come after the specified cursor.
+    after: String
+
+    # Returns the elements in the list that come before the specified cursor.
+    before: String
+
+    # Returns the first _n_ elements from the list.
+    first: Int
+
+    # Returns the last _n_ elements from the list.
+    last: Int
+    types: [ErrorTypeEnum]
+  ): ErrorConnection!
   query: Query
   report: Report
   was_successful: Boolean!
@@ -3132,7 +3850,20 @@ input MarkReportAsNoiseInput {
 type MarkReportAsNoisePayload implements MutationResult {
   # A unique identifier for the client performing the mutation.
   clientMutationId: String
-  errors(types: [ErrorTypeEnum]): ErrorConnection!
+  errors(
+    # Returns the elements in the list that come after the specified cursor.
+    after: String
+
+    # Returns the elements in the list that come before the specified cursor.
+    before: String
+
+    # Returns the first _n_ elements from the list.
+    first: Int
+
+    # Returns the last _n_ elements from the list.
+    last: Int
+    types: [ErrorTypeEnum]
+  ): ErrorConnection!
   query: Query
   report: Report
   was_successful: Boolean!
@@ -3150,7 +3881,20 @@ input MarkReportAsSignalInput {
 type MarkReportAsSignalPayload implements MutationResult {
   # A unique identifier for the client performing the mutation.
   clientMutationId: String
-  errors(types: [ErrorTypeEnum]): ErrorConnection!
+  errors(
+    # Returns the elements in the list that come after the specified cursor.
+    after: String
+
+    # Returns the elements in the list that come before the specified cursor.
+    before: String
+
+    # Returns the first _n_ elements from the list.
+    first: Int
+
+    # Returns the last _n_ elements from the list.
+    last: Int
+    types: [ErrorTypeEnum]
+  ): ErrorConnection!
   query: Query
   report: Report
   was_successful: Boolean!
@@ -3214,6 +3958,7 @@ type Mutation {
   deleteUserLufthansaAccount(input: DeleteUserLufthansaAccountInput!): DeleteUserLufthansaAccountPayload
   deleteUserSession(input: DeleteUserSessionInput!): DeleteUserSessionPayload
   destroyTwoFactorAuthenticationCredentials(input: DestroyTwoFactorAuthenticationCredentialsInput!): DestroyTwoFactorAuthenticationCredentialsPayload
+  destroyUpvote(input: DestroyUpvoteInput!): DestroyUpvotePayload
   dismissProgramHealthAcknowledgement(input: DismissProgramHealthAcknowledgementInput!): DismissProgramHealthAcknowledgementPayload
   enableUser(input: EnableUserInput!): EnableUserPayload
   exportLifetimeReports(input: ExportLifetimeReportsInput!): ExportLifetimeReportsPayload
@@ -3228,10 +3973,12 @@ type Mutation {
   markReportAsSignal(input: MarkReportAsSignalInput!): MarkReportAsSignalPayload
   programHealthAcknowledgementSeen(input: ProgramHealthAcknowledgementSeenInput!): ProgramHealthAcknowledgementSeenPayload
   publishPolicy(input: PublishPolicyInput!): PublishPolicyPayload
+  regenerateCalendarToken(input: RegenerateCalendarTokenInput!): RegenerateCalendarTokenPayload
   rejectInvitation(input: RejectInvitationInput!): RejectInvitationPayload
   removeBountyTable(input: RemoveBountyTableInput!): RemoveBountyTablePayload
   revokeCredential(input: RevokeCredentialInput!): RevokeCredentialPayload
   unclaimReport(input: UnclaimReportInput!): UnclaimReportPayload
+  unsubscribeMailingList(input: UnsubscribeMailingListInput!): UnsubscribeMailingListPayload
   updateAccountRecoveryPhoneNumber(input: UpdateAccountRecoveryPhoneNumberInput!): UpdateAccountRecoveryPhoneNumberPayload
   updateAssigneeToGroup(input: UpdateAssigneeToGroupInput!): UpdateAssigneeToGroupPayload
   updateAssigneeToNobody(input: UpdateAssigneeToNobodyInput!): UpdateAssigneeToNobodyPayload
@@ -3283,11 +4030,25 @@ type Mutation {
   updateUserEmail(input: UpdateUserEmailInput!): UpdateUserEmailPayload
   updateUserLufthansaAccount(input: UpdateUserLufthansaAccountInput!): UpdateUserLufthansaAccountPayload
   updateUserPassword(input: UpdateUserPasswordInput!): UpdateUserPasswordPayload
+  upvote(input: UpvoteInput!): UpvotePayload
   verifyAccountRecoveryPhoneNumber(input: VerifyAccountRecoveryPhoneNumberInput!): VerifyAccountRecoveryPhoneNumberPayload
 }
 
 interface MutationResult {
-  errors(types: [ErrorTypeEnum]): ErrorConnection!
+  errors(
+    # Returns the elements in the list that come after the specified cursor.
+    after: String
+
+    # Returns the elements in the list that come before the specified cursor.
+    before: String
+
+    # Returns the first _n_ elements from the list.
+    first: Int
+
+    # Returns the last _n_ elements from the list.
+    last: Int
+    types: [ErrorTypeEnum]
+  ): ErrorConnection!
   was_successful: Boolean!
 }
 
@@ -3338,6 +4099,9 @@ type PageInfo {
 type ParticipantConnection {
   # A list of edges.
   edges: [ParticipantWithReputationEdge]
+
+  # A list of nodes.
+  nodes: [User]
 
   # Information to aid in pagination.
   pageInfo: PageInfo!
@@ -3437,6 +4201,9 @@ type ProfileMetricsSnapshotConnection {
   # A list of edges.
   edges: [ProfileMetricsSnapshotEdge]
 
+  # A list of nodes.
+  nodes: [ProfileMetricsSnapshot]
+
   # Information to aid in pagination.
   pageInfo: PageInfo!
   total_count: Int!
@@ -3481,6 +4248,9 @@ type ProgramHealthAcknowledgementConnection {
   # A list of edges.
   edges: [ProgramHealthAcknowledgementEdge]
 
+  # A list of nodes.
+  nodes: [ProgramHealthAcknowledgement]
+
   # Information to aid in pagination.
   pageInfo: PageInfo!
   total_count: Int!
@@ -3514,14 +4284,26 @@ input ProgramHealthAcknowledgementSeenInput {
 type ProgramHealthAcknowledgementSeenPayload implements MutationResult {
   # A unique identifier for the client performing the mutation.
   clientMutationId: String
-  errors(types: [ErrorTypeEnum]): ErrorConnection!
+  errors(
+    # Returns the elements in the list that come after the specified cursor.
+    after: String
+
+    # Returns the elements in the list that come before the specified cursor.
+    before: String
+
+    # Returns the first _n_ elements from the list.
+    first: Int
+
+    # Returns the last _n_ elements from the list.
+    last: Int
+    types: [ErrorTypeEnum]
+  ): ErrorConnection!
   me: User
   was_successful: Boolean!
 }
 
 # A HacktivityItems::PubliclyDisclosed for a report
-type PubliclyDisclosed implements HacktivityItemInterface & Node & ResourceInterface {
-  # The primary key from the database
+type PubliclyDisclosed implements HacktivityItemInterface & Node {
   _id: ID!
   created_at: DateTime
   id: ID!
@@ -3532,7 +4314,20 @@ type PubliclyDisclosed implements HacktivityItemInterface & Node & ResourceInter
   severity_rating: SeverityRatingEnum
   team: Team
   total_awarded_amount: Float
-  url: URI!
+  upvoted_by_current_user: Boolean!
+  votes(
+    # Returns the elements in the list that come after the specified cursor.
+    after: String
+
+    # Returns the elements in the list that come before the specified cursor.
+    before: String
+
+    # Returns the first _n_ elements from the list.
+    first: Int
+
+    # Returns the last _n_ elements from the list.
+    last: Int
+  ): VoteConnection
 }
 
 # Autogenerated input type of PublishPolicy
@@ -3561,7 +4356,20 @@ input PublishPolicyInput {
 type PublishPolicyPayload implements MutationResult {
   # A unique identifier for the client performing the mutation.
   clientMutationId: String
-  errors(types: [ErrorTypeEnum]): ErrorConnection!
+  errors(
+    # Returns the elements in the list that come after the specified cursor.
+    after: String
+
+    # Returns the elements in the list that come before the specified cursor.
+    before: String
+
+    # Returns the first _n_ elements from the list.
+    first: Int
+
+    # Returns the last _n_ elements from the list.
+    last: Int
+    types: [ErrorTypeEnum]
+  ): ErrorConnection!
   redirect_path: URI
   was_successful: Boolean!
 }
@@ -3616,7 +4424,7 @@ type Query implements Node {
     query: String
     secure_order_by: FiltersHacktivityItemFilterOrder
     where: FiltersHacktivityItemFilterInput
-  ): HacktivityItemConnectionType
+  ): HacktivityItemConnection
   id: ID!
   me: User
 
@@ -3696,7 +4504,7 @@ type Query implements Node {
 
     # Returns the last _n_ elements from the list.
     last: Int
-  ): SurveyConnectionType
+  ): SurveyConnection
   team(handle: String!): Team @deprecated(reason: "Query for a Team node at the root level is not recommended. Ref T12456")
   teams(
     # Returns the elements in the list that come after the specified cursor.
@@ -3732,6 +4540,34 @@ type Query implements Node {
   ): UserConnection
 }
 
+# Autogenerated input type of RegenerateCalendarToken
+input RegenerateCalendarTokenInput {
+  # A unique identifier for the client performing the mutation.
+  clientMutationId: String
+}
+
+# Autogenerated return type of RegenerateCalendarToken
+type RegenerateCalendarTokenPayload implements MutationResult {
+  # A unique identifier for the client performing the mutation.
+  clientMutationId: String
+  errors(
+    # Returns the elements in the list that come after the specified cursor.
+    after: String
+
+    # Returns the elements in the list that come before the specified cursor.
+    before: String
+
+    # Returns the first _n_ elements from the list.
+    first: Int
+
+    # Returns the last _n_ elements from the list.
+    last: Int
+    types: [ErrorTypeEnum]
+  ): ErrorConnection!
+  me: User
+  was_successful: Boolean!
+}
+
 # Autogenerated input type of RejectInvitation
 input RejectInvitationInput {
   # A unique identifier for the client performing the mutation.
@@ -3758,7 +4594,20 @@ input RemoveBountyTableInput {
 type RemoveBountyTablePayload implements MutationResult {
   # A unique identifier for the client performing the mutation.
   clientMutationId: String
-  errors(types: [ErrorTypeEnum]): ErrorConnection!
+  errors(
+    # Returns the elements in the list that come after the specified cursor.
+    after: String
+
+    # Returns the elements in the list that come before the specified cursor.
+    before: String
+
+    # Returns the first _n_ elements from the list.
+    first: Int
+
+    # Returns the last _n_ elements from the list.
+    last: Int
+    types: [ErrorTypeEnum]
+  ): ErrorConnection!
   team: Team
   was_successful: Boolean!
 }
@@ -3837,6 +4686,19 @@ type Report implements Node & ResourceInterface {
   triage_meta: TriageMeta
   triaged_at: DateTime
   url: URI!
+  votes(
+    # Returns the elements in the list that come after the specified cursor.
+    after: String
+
+    # Returns the elements in the list that come before the specified cursor.
+    before: String
+
+    # Returns the first _n_ elements from the list.
+    first: Int
+
+    # Returns the last _n_ elements from the list.
+    last: Int
+  ): VoteConnection
   vulnerability_information: String
   vulnerability_information_html: String
   weakness: Weakness
@@ -3995,6 +4857,7 @@ type ReportRetestUser {
   bypass_report_id: Int
   completed_at: DateTime
   id: ID!
+  invitation: InvitationsRetest
   report_retest: ReportRetest
   status: BountyStatusEnum!
   user: User
@@ -4077,7 +4940,20 @@ type RevokeCredentialPayload implements MutationResult {
   # A unique identifier for the client performing the mutation.
   clientMutationId: String
   credential: Credential
-  errors(types: [ErrorTypeEnum]): ErrorConnection!
+  errors(
+    # Returns the elements in the list that come after the specified cursor.
+    after: String
+
+    # Returns the elements in the list that come before the specified cursor.
+    before: String
+
+    # Returns the first _n_ elements from the list.
+    first: Int
+
+    # Returns the last _n_ elements from the list.
+    last: Int
+    types: [ErrorTypeEnum]
+  ): ErrorConnection!
   was_successful: Boolean!
 }
 
@@ -4227,6 +5103,9 @@ type SlaSnapshotConnection {
   edges: [SlaSnapshotEdge]
   group_by(period: SlaSnapshotIntervalEnum): [AggregatedSlaSnapshot]
 
+  # A list of nodes.
+  nodes: [SlaSnapshot]
+
   # Information to aid in pagination.
   pageInfo: PageInfo!
 }
@@ -4267,6 +5146,9 @@ type SlaStatus implements Node {
 type SlaStatusConnection {
   # A list of edges.
   edges: [SlaStatusEdge]
+
+  # A list of nodes.
+  nodes: [SlaStatus]
 
   # Information to aid in pagination.
   pageInfo: PageInfo!
@@ -4353,6 +5235,9 @@ type SlackPipelineConnection {
   # A list of edges.
   edges: [SlackPipelineEdge]
 
+  # A list of nodes.
+  nodes: [SlackPipeline]
+
   # Information to aid in pagination.
   pageInfo: PageInfo!
   total_count: Int!
@@ -4384,6 +5269,9 @@ type SoftLaunchConnection {
   # A list of edges.
   edges: [InvitationsSoftLaunchEdge]
 
+  # A list of nodes.
+  nodes: [InvitationsSoftLaunch]
+
   # Information to aid in pagination.
   pageInfo: PageInfo!
   total_count: Int!
@@ -4404,6 +5292,9 @@ type StaticParticipant implements Node {
 type StaticParticipantConnection {
   # A list of edges.
   edges: [StaticParticipantEdge]
+
+  # A list of nodes.
+  nodes: [StaticParticipant]
 
   # Information to aid in pagination.
   pageInfo: PageInfo!
@@ -4556,6 +5447,9 @@ type StructuredScopeConnection {
   # A list of edges.
   edges: [StructuredScopeEdge]
 
+  # A list of nodes.
+  nodes: [StructuredScope]
+
   # Information to aid in pagination.
   pageInfo: PageInfo!
   total_count: Int!
@@ -4588,6 +5482,9 @@ type StructuredScopeVersionConnection {
   edges: [StructuredScopeVersionEdge]
   max_updated_at: DateTime
 
+  # A list of nodes.
+  nodes: [StructuredScopeVersion]
+
   # Information to aid in pagination.
   pageInfo: PageInfo!
 }
@@ -4606,6 +5503,9 @@ type StructuredScopesConnection {
   # A list of edges.
   edges: [StructuredScopeEdge]
   max_updated_at: DateTime
+
+  # A list of nodes.
+  nodes: [StructuredScope]
 
   # Information to aid in pagination.
   pageInfo: PageInfo!
@@ -4672,7 +5572,7 @@ type Survey implements Node & ResourceInterface {
 
     # Returns the last _n_ elements from the list.
     last: Int
-  ): SurveyStructuredResponseConnectionType
+  ): SurveyStructuredResponseConnection
   url: URI!
 }
 
@@ -4695,7 +5595,7 @@ type SurveyAnswer implements Node {
 
     # Returns the last _n_ elements from the list.
     last: Int
-  ): SurveyStructuredResponsesConnectionType
+  ): SurveyStructuredResponseConnection
   team: Team
   updated_at: DateTime
   user: User
@@ -4705,6 +5605,9 @@ type SurveyAnswer implements Node {
 type SurveyAnswerConnection {
   # A list of edges.
   edges: [SurveyAnswerEdge]
+
+  # A list of nodes.
+  nodes: [SurveyAnswer]
 
   # Information to aid in pagination.
   pageInfo: PageInfo!
@@ -4744,9 +5647,12 @@ enum SurveyCategoryEnum {
 }
 
 # The connection type for Survey.
-type SurveyConnectionType {
+type SurveyConnection {
   # A list of edges.
   edges: [SurveyEdge]
+
+  # A list of nodes.
+  nodes: [Survey]
 
   # Information to aid in pagination.
   pageInfo: PageInfo!
@@ -4773,9 +5679,12 @@ type SurveyStructuredResponse implements Node {
 }
 
 # The connection type for SurveyStructuredResponse.
-type SurveyStructuredResponseConnectionType {
+type SurveyStructuredResponseConnection {
   # A list of edges.
   edges: [SurveyStructuredResponseEdge]
+
+  # A list of nodes.
+  nodes: [SurveyStructuredResponse]
 
   # Information to aid in pagination.
   pageInfo: PageInfo!
@@ -4805,16 +5714,6 @@ enum SurveyStructuredResponseTypeEnum {
   specialization
   uninteresting
   unresponsive
-}
-
-# The connection type for SurveyStructuredResponse.
-type SurveyStructuredResponsesConnectionType {
-  # A list of edges.
-  edges: [SurveyStructuredResponseEdge]
-
-  # Information to aid in pagination.
-  pageInfo: PageInfo!
-  total_count: Int!
 }
 
 # A HackerOne swag awarded for a report
@@ -4934,6 +5833,9 @@ type Team implements Node & ResourceInterface {
     last: Int
   ): UserConnection
   bounty_awarded_staleness_threshold: Int
+
+  # The participant's total bounty earned within the team
+  bounty_earned_for_user: Float
   bounty_table: BountyTable
   bounty_time: Float
   bug_count: Int
@@ -5000,6 +5902,7 @@ type Team implements Node & ResourceInterface {
     # Returns the last _n_ elements from the list.
     last: Int
   ): CveRequestsConnection
+  cwe_field_hidden: Boolean!
   embedded_submission_domains(
     # Returns the elements in the list that come after the specified cursor.
     after: String
@@ -5012,7 +5915,7 @@ type Team implements Node & ResourceInterface {
 
     # Returns the last _n_ elements from the list.
     last: Int
-  ): EmbeddedSubmissionDomainConnectionType
+  ): EmbeddedSubmissionDomainConnection
   embedded_submission_form_enabled: Boolean!
   embedded_submission_forms(
     # Returns the elements in the list that come after the specified cursor.
@@ -5026,7 +5929,7 @@ type Team implements Node & ResourceInterface {
 
     # Returns the last _n_ elements from the list.
     last: Int
-  ): EmbeddedSubmissionFormConnectionType
+  ): EmbeddedSubmissionFormConnection
   external_program: ExternalProgram
   external_url: String
   fancy_slack_integration: Boolean
@@ -5128,12 +6031,21 @@ type Team implements Node & ResourceInterface {
   jira_integration: JiraIntegration
   jira_oauth: JiraOauth
   jira_webhook: JiraWebhook
+
+  # The participant's date of accepted the teams invitation
+  last_invitation_accepted_at_for_user: DateTime
   launch_link: String
   maximum_number_of_team_mediation_requests: Float
   minimum_bounty: Int
   name: String!
   new_staleness_threshold: Int
   new_staleness_threshold_limit: Int
+
+  # The participant's number of reports within the team
+  number_of_reports_for_user: Int
+
+  # The participant's number of valid reports within the team
+  number_of_valid_reports_for_user: Int
   offers_bounties: Boolean
   offers_swag: Boolean
   only_cleared_hackers: Boolean
@@ -5499,6 +6411,9 @@ type TeamConnection {
   # A list of edges.
   edges: [TeamEdge]
 
+  # A list of nodes.
+  nodes: [Team]
+
   # Information to aid in pagination.
   pageInfo: PageInfo!
   total_count: Int!
@@ -5557,6 +6472,9 @@ type TeamInboxViewConnection {
   # A list of edges.
   edges: [TeamInboxViewEdge]
 
+  # A list of nodes.
+  nodes: [TeamInboxView]
+
   # Information to aid in pagination.
   pageInfo: PageInfo!
   total_count: Int!
@@ -5601,6 +6519,9 @@ type TeamMemberConnection {
   # A list of edges.
   edges: [TeamMemberEdge]
 
+  # A list of nodes.
+  nodes: [TeamMember]
+
   # Information to aid in pagination.
   pageInfo: PageInfo!
   total_count: Int!
@@ -5640,10 +6561,13 @@ enum TeamMemberOrderField {
 # Fields on which a collection of Teams can be ordered
 enum TeamOrderField {
   average_bounty_amount
+  bounty_earned_by_user
   last_invitation_accepted_at
   minimum_bounty
   name
   reports_resolved
+  reports_submitted_by_user
+  valid_reports_submitted_by_user
 }
 
 input TeamOrderInput {
@@ -5655,6 +6579,9 @@ input TeamOrderInput {
 type TeamPostConnection {
   # A list of edges.
   edges: [PostEdge]
+
+  # A list of nodes.
+  nodes: [Post]
 
   # Information to aid in pagination.
   pageInfo: PageInfo!
@@ -5706,6 +6633,9 @@ type TeamWeakness implements Node {
 type TeamWeaknessConnection {
   # A list of edges.
   edges: [TeamWeaknessEdge]
+
+  # A list of nodes.
+  nodes: [TeamWeakness]
 
   # Information to aid in pagination.
   pageInfo: PageInfo!
@@ -5786,6 +6716,9 @@ type TriggerActionLogConnection {
   # A list of edges.
   edges: [TriggerActionLogEdge]
 
+  # A list of nodes.
+  nodes: [TriggerActionLog]
+
   # Information to aid in pagination.
   pageInfo: PageInfo!
   total_count: Int!
@@ -5804,6 +6737,9 @@ type TriggerActionLogEdge {
 type TriggerConnection {
   # A list of edges.
   edges: [TriggerEdge]
+
+  # A list of nodes.
+  nodes: [Trigger]
 
   # Information to aid in pagination.
   pageInfo: PageInfo!
@@ -5866,23 +6802,78 @@ input UnclaimReportInput {
 type UnclaimReportPayload implements MutationResult {
   # A unique identifier for the client performing the mutation.
   clientMutationId: String
-  errors(types: [ErrorTypeEnum]): ErrorConnection!
+  errors(
+    # Returns the elements in the list that come after the specified cursor.
+    after: String
+
+    # Returns the elements in the list that come before the specified cursor.
+    before: String
+
+    # Returns the first _n_ elements from the list.
+    first: Int
+
+    # Returns the last _n_ elements from the list.
+    last: Int
+    types: [ErrorTypeEnum]
+  ): ErrorConnection!
   report: Report
   was_successful: Boolean!
 }
 
 # A HacktivityItems::Undisclosed for a report
-type Undisclosed implements HacktivityItemInterface & Node & ResourceInterface {
-  # The primary key from the database
+type Undisclosed implements HacktivityItemInterface & Node {
   _id: ID!
   created_at: DateTime
   id: ID!
   latest_disclosable_action: String
   latest_disclosable_activity_at: DateTime
   reporter: User
+  requires_view_privilege: Boolean!
   team: Team
   total_awarded_amount: Float
-  url: URI!
+  upvoted_by_current_user: Boolean!
+  votes(
+    # Returns the elements in the list that come after the specified cursor.
+    after: String
+
+    # Returns the elements in the list that come before the specified cursor.
+    before: String
+
+    # Returns the first _n_ elements from the list.
+    first: Int
+
+    # Returns the last _n_ elements from the list.
+    last: Int
+  ): VoteConnection
+}
+
+# Autogenerated input type of UnsubscribeMailingList
+input UnsubscribeMailingListInput {
+  # A unique identifier for the client performing the mutation.
+  clientMutationId: String
+  subscription: UserEmailSubscriptionEnum!
+}
+
+# Autogenerated return type of UnsubscribeMailingList
+type UnsubscribeMailingListPayload implements MutationResult {
+  # A unique identifier for the client performing the mutation.
+  clientMutationId: String
+  errors(
+    # Returns the elements in the list that come after the specified cursor.
+    after: String
+
+    # Returns the elements in the list that come before the specified cursor.
+    before: String
+
+    # Returns the first _n_ elements from the list.
+    first: Int
+
+    # Returns the last _n_ elements from the list.
+    last: Int
+    types: [ErrorTypeEnum]
+  ): ErrorConnection!
+  me: User
+  was_successful: Boolean!
 }
 
 # Autogenerated input type of UpdateAccountRecoveryPhoneNumber
@@ -5897,7 +6888,20 @@ input UpdateAccountRecoveryPhoneNumberInput {
 type UpdateAccountRecoveryPhoneNumberPayload implements MutationResult {
   # A unique identifier for the client performing the mutation.
   clientMutationId: String
-  errors(types: [ErrorTypeEnum]): ErrorConnection!
+  errors(
+    # Returns the elements in the list that come after the specified cursor.
+    after: String
+
+    # Returns the elements in the list that come before the specified cursor.
+    before: String
+
+    # Returns the first _n_ elements from the list.
+    first: Int
+
+    # Returns the last _n_ elements from the list.
+    last: Int
+    types: [ErrorTypeEnum]
+  ): ErrorConnection!
   me: User
   was_successful: Boolean!
 }
@@ -5976,7 +6980,20 @@ input UpdateBookmarkedTeamInput {
 type UpdateBookmarkedTeamPayload implements MutationResult {
   # A unique identifier for the client performing the mutation.
   clientMutationId: String
-  errors(types: [ErrorTypeEnum]): ErrorConnection!
+  errors(
+    # Returns the elements in the list that come after the specified cursor.
+    after: String
+
+    # Returns the elements in the list that come before the specified cursor.
+    before: String
+
+    # Returns the first _n_ elements from the list.
+    first: Int
+
+    # Returns the last _n_ elements from the list.
+    last: Int
+    types: [ErrorTypeEnum]
+  ): ErrorConnection!
   query: Query
   team: Team
   was_successful: Boolean!
@@ -6000,7 +7017,20 @@ input UpdateBountyTableInput {
 type UpdateBountyTablePayload implements MutationResult {
   # A unique identifier for the client performing the mutation.
   clientMutationId: String
-  errors(types: [ErrorTypeEnum]): ErrorConnection!
+  errors(
+    # Returns the elements in the list that come after the specified cursor.
+    after: String
+
+    # Returns the elements in the list that come before the specified cursor.
+    before: String
+
+    # Returns the first _n_ elements from the list.
+    first: Int
+
+    # Returns the last _n_ elements from the list.
+    last: Int
+    types: [ErrorTypeEnum]
+  ): ErrorConnection!
   team: Team
   was_successful: Boolean!
 }
@@ -6020,7 +7050,20 @@ type UpdateChallengeSettingPayload implements MutationResult {
 
   # A unique identifier for the client performing the mutation.
   clientMutationId: String
-  errors(types: [ErrorTypeEnum]): ErrorConnection!
+  errors(
+    # Returns the elements in the list that come after the specified cursor.
+    after: String
+
+    # Returns the elements in the list that come before the specified cursor.
+    before: String
+
+    # Returns the first _n_ elements from the list.
+    first: Int
+
+    # Returns the last _n_ elements from the list.
+    last: Int
+    types: [ErrorTypeEnum]
+  ): ErrorConnection!
   was_successful: Boolean!
 }
 
@@ -6038,7 +7081,20 @@ type UpdateCredentialAccountDetailPayload implements MutationResult {
   # A unique identifier for the client performing the mutation.
   clientMutationId: String
   credential: Credential
-  errors(types: [ErrorTypeEnum]): ErrorConnection!
+  errors(
+    # Returns the elements in the list that come after the specified cursor.
+    after: String
+
+    # Returns the elements in the list that come before the specified cursor.
+    before: String
+
+    # Returns the first _n_ elements from the list.
+    first: Int
+
+    # Returns the last _n_ elements from the list.
+    last: Int
+    types: [ErrorTypeEnum]
+  ): ErrorConnection!
   was_successful: Boolean!
 }
 
@@ -6054,7 +7110,20 @@ input UpdateCredentialInstructionInput {
 type UpdateCredentialInstructionPayload implements MutationResult {
   # A unique identifier for the client performing the mutation.
   clientMutationId: String
-  errors(types: [ErrorTypeEnum]): ErrorConnection!
+  errors(
+    # Returns the elements in the list that come after the specified cursor.
+    after: String
+
+    # Returns the elements in the list that come before the specified cursor.
+    before: String
+
+    # Returns the first _n_ elements from the list.
+    first: Int
+
+    # Returns the last _n_ elements from the list.
+    last: Int
+    types: [ErrorTypeEnum]
+  ): ErrorConnection!
   team: Team
   was_successful: Boolean!
 }
@@ -6080,7 +7149,20 @@ type UpdateCveRequestPayload implements MutationResult {
   # A unique identifier for the client performing the mutation.
   clientMutationId: String
   cve_request: CveRequest
-  errors(types: [ErrorTypeEnum]): ErrorConnection!
+  errors(
+    # Returns the elements in the list that come after the specified cursor.
+    after: String
+
+    # Returns the elements in the list that come before the specified cursor.
+    before: String
+
+    # Returns the first _n_ elements from the list.
+    first: Int
+
+    # Returns the last _n_ elements from the list.
+    last: Int
+    types: [ErrorTypeEnum]
+  ): ErrorConnection!
   was_successful: Boolean!
 }
 
@@ -6096,7 +7178,20 @@ input UpdateEmbeddedSubmissionDomainInput {
 type UpdateEmbeddedSubmissionDomainPayload implements MutationResult {
   # A unique identifier for the client performing the mutation.
   clientMutationId: String
-  errors(types: [ErrorTypeEnum]): ErrorConnection!
+  errors(
+    # Returns the elements in the list that come after the specified cursor.
+    after: String
+
+    # Returns the elements in the list that come before the specified cursor.
+    before: String
+
+    # Returns the first _n_ elements from the list.
+    first: Int
+
+    # Returns the last _n_ elements from the list.
+    last: Int
+    types: [ErrorTypeEnum]
+  ): ErrorConnection!
   team: Team
   was_successful: Boolean!
 }
@@ -6112,7 +7207,20 @@ input UpdateFacebookUserIdInput {
 type UpdateFacebookUserIdPayload implements MutationResult {
   # A unique identifier for the client performing the mutation.
   clientMutationId: String
-  errors(types: [ErrorTypeEnum]): ErrorConnection!
+  errors(
+    # Returns the elements in the list that come after the specified cursor.
+    after: String
+
+    # Returns the elements in the list that come before the specified cursor.
+    before: String
+
+    # Returns the first _n_ elements from the list.
+    first: Int
+
+    # Returns the last _n_ elements from the list.
+    last: Int
+    types: [ErrorTypeEnum]
+  ): ErrorConnection!
   me: User
   was_successful: Boolean!
 }
@@ -6133,7 +7241,20 @@ input UpdateInvitationPreferencesInput {
 type UpdateInvitationPreferencesPayload implements MutationResult {
   # A unique identifier for the client performing the mutation.
   clientMutationId: String
-  errors(types: [ErrorTypeEnum]): ErrorConnection!
+  errors(
+    # Returns the elements in the list that come after the specified cursor.
+    after: String
+
+    # Returns the elements in the list that come before the specified cursor.
+    before: String
+
+    # Returns the first _n_ elements from the list.
+    first: Int
+
+    # Returns the last _n_ elements from the list.
+    last: Int
+    types: [ErrorTypeEnum]
+  ): ErrorConnection!
   me: User
   was_successful: Boolean!
 }
@@ -6167,7 +7288,20 @@ input UpdateLastViewedNewFeaturesAtInput {
 type UpdateLastViewedNewFeaturesAtPayload implements MutationResult {
   # A unique identifier for the client performing the mutation.
   clientMutationId: String
-  errors(types: [ErrorTypeEnum]): ErrorConnection!
+  errors(
+    # Returns the elements in the list that come after the specified cursor.
+    after: String
+
+    # Returns the elements in the list that come before the specified cursor.
+    before: String
+
+    # Returns the first _n_ elements from the list.
+    first: Int
+
+    # Returns the last _n_ elements from the list.
+    last: Int
+    types: [ErrorTypeEnum]
+  ): ErrorConnection!
   me: User
   was_successful: Boolean!
 }
@@ -6184,7 +7318,20 @@ input UpdateMeInput {
 type UpdateMePayload implements MutationResult {
   # A unique identifier for the client performing the mutation.
   clientMutationId: String
-  errors(types: [ErrorTypeEnum]): ErrorConnection!
+  errors(
+    # Returns the elements in the list that come after the specified cursor.
+    after: String
+
+    # Returns the elements in the list that come before the specified cursor.
+    before: String
+
+    # Returns the first _n_ elements from the list.
+    first: Int
+
+    # Returns the last _n_ elements from the list.
+    last: Int
+    types: [ErrorTypeEnum]
+  ): ErrorConnection!
   me: User
   was_successful: Boolean!
 }
@@ -6390,7 +7537,20 @@ input UpdateSingleBookmarkedTeamInput {
 type UpdateSingleBookmarkedTeamPayload implements MutationResult {
   # A unique identifier for the client performing the mutation.
   clientMutationId: String
-  errors(types: [ErrorTypeEnum]): ErrorConnection!
+  errors(
+    # Returns the elements in the list that come after the specified cursor.
+    after: String
+
+    # Returns the elements in the list that come before the specified cursor.
+    before: String
+
+    # Returns the first _n_ elements from the list.
+    first: Int
+
+    # Returns the last _n_ elements from the list.
+    last: Int
+    types: [ErrorTypeEnum]
+  ): ErrorConnection!
   team: Team
   was_successful: Boolean!
 }
@@ -6466,7 +7626,20 @@ input UpdateStructuredPolicyInput {
 type UpdateStructuredPolicyPayload implements MutationResult {
   # A unique identifier for the client performing the mutation.
   clientMutationId: String
-  errors(types: [ErrorTypeEnum]): ErrorConnection!
+  errors(
+    # Returns the elements in the list that come after the specified cursor.
+    after: String
+
+    # Returns the elements in the list that come before the specified cursor.
+    before: String
+
+    # Returns the first _n_ elements from the list.
+    first: Int
+
+    # Returns the last _n_ elements from the list.
+    last: Int
+    types: [ErrorTypeEnum]
+  ): ErrorConnection!
   team: Team
   was_successful: Boolean!
 }
@@ -6491,7 +7664,20 @@ input UpdateStructuredScopeInput {
 type UpdateStructuredScopePayload implements MutationResult {
   # A unique identifier for the client performing the mutation.
   clientMutationId: String
-  errors(types: [ErrorTypeEnum]): ErrorConnection!
+  errors(
+    # Returns the elements in the list that come after the specified cursor.
+    after: String
+
+    # Returns the elements in the list that come before the specified cursor.
+    before: String
+
+    # Returns the first _n_ elements from the list.
+    first: Int
+
+    # Returns the last _n_ elements from the list.
+    last: Int
+    types: [ErrorTypeEnum]
+  ): ErrorConnection!
   structured_scope: StructuredScope
   was_successful: Boolean!
 }
@@ -6508,7 +7694,20 @@ input UpdateSubmissionRequirementInput {
 type UpdateSubmissionRequirementPayload implements MutationResult {
   # A unique identifier for the client performing the mutation.
   clientMutationId: String
-  errors(types: [ErrorTypeEnum]): ErrorConnection!
+  errors(
+    # Returns the elements in the list that come after the specified cursor.
+    after: String
+
+    # Returns the elements in the list that come before the specified cursor.
+    before: String
+
+    # Returns the first _n_ elements from the list.
+    first: Int
+
+    # Returns the last _n_ elements from the list.
+    last: Int
+    types: [ErrorTypeEnum]
+  ): ErrorConnection!
   team: Team
   was_successful: Boolean!
 }
@@ -6526,7 +7725,20 @@ input UpdateTeamAllowsPrivateDisclosureInput {
 type UpdateTeamAllowsPrivateDisclosurePayload implements MutationResult {
   # A unique identifier for the client performing the mutation.
   clientMutationId: String
-  errors(types: [ErrorTypeEnum]): ErrorConnection!
+  errors(
+    # Returns the elements in the list that come after the specified cursor.
+    after: String
+
+    # Returns the elements in the list that come before the specified cursor.
+    before: String
+
+    # Returns the first _n_ elements from the list.
+    first: Int
+
+    # Returns the last _n_ elements from the list.
+    last: Int
+    types: [ErrorTypeEnum]
+  ): ErrorConnection!
   team: Team
   was_successful: Boolean!
 }
@@ -6543,7 +7755,20 @@ input UpdateTeamCriticalSubmissionStateInput {
 type UpdateTeamCriticalSubmissionStatePayload implements MutationResult {
   # A unique identifier for the client performing the mutation.
   clientMutationId: String
-  errors(types: [ErrorTypeEnum]): ErrorConnection!
+  errors(
+    # Returns the elements in the list that come after the specified cursor.
+    after: String
+
+    # Returns the elements in the list that come before the specified cursor.
+    before: String
+
+    # Returns the first _n_ elements from the list.
+    first: Int
+
+    # Returns the last _n_ elements from the list.
+    last: Int
+    types: [ErrorTypeEnum]
+  ): ErrorConnection!
   team: Team
   was_successful: Boolean!
 }
@@ -6601,7 +7826,20 @@ input UpdateTeamResponseSlaInput {
 type UpdateTeamResponseSlaPayload implements MutationResult {
   # A unique identifier for the client performing the mutation.
   clientMutationId: String
-  errors(types: [ErrorTypeEnum]): ErrorConnection!
+  errors(
+    # Returns the elements in the list that come after the specified cursor.
+    after: String
+
+    # Returns the elements in the list that come before the specified cursor.
+    before: String
+
+    # Returns the first _n_ elements from the list.
+    first: Int
+
+    # Returns the last _n_ elements from the list.
+    last: Int
+    types: [ErrorTypeEnum]
+  ): ErrorConnection!
   team: Team
   was_successful: Boolean!
 }
@@ -6652,7 +7890,20 @@ input UpdateTeamSuccessGoalsInput {
 type UpdateTeamSuccessGoalsPayload implements MutationResult {
   # A unique identifier for the client performing the mutation.
   clientMutationId: String
-  errors(types: [ErrorTypeEnum]): ErrorConnection!
+  errors(
+    # Returns the elements in the list that come after the specified cursor.
+    after: String
+
+    # Returns the elements in the list that come before the specified cursor.
+    before: String
+
+    # Returns the first _n_ elements from the list.
+    first: Int
+
+    # Returns the last _n_ elements from the list.
+    last: Int
+    types: [ErrorTypeEnum]
+  ): ErrorConnection!
   team: Team
   was_successful: Boolean!
 }
@@ -6669,7 +7920,20 @@ input UpdateTeamTriageNoteInput {
 type UpdateTeamTriageNotePayload implements MutationResult {
   # A unique identifier for the client performing the mutation.
   clientMutationId: String
-  errors(types: [ErrorTypeEnum]): ErrorConnection!
+  errors(
+    # Returns the elements in the list that come after the specified cursor.
+    after: String
+
+    # Returns the elements in the list that come before the specified cursor.
+    before: String
+
+    # Returns the first _n_ elements from the list.
+    first: Int
+
+    # Returns the last _n_ elements from the list.
+    last: Int
+    types: [ErrorTypeEnum]
+  ): ErrorConnection!
   team: Team
   was_successful: Boolean!
 }
@@ -6707,7 +7971,20 @@ input UpdateTriggerInput {
 type UpdateTriggerPayload implements MutationResult {
   # A unique identifier for the client performing the mutation.
   clientMutationId: String
-  errors(types: [ErrorTypeEnum]): ErrorConnection!
+  errors(
+    # Returns the elements in the list that come after the specified cursor.
+    after: String
+
+    # Returns the elements in the list that come before the specified cursor.
+    before: String
+
+    # Returns the first _n_ elements from the list.
+    first: Int
+
+    # Returns the last _n_ elements from the list.
+    last: Int
+    types: [ErrorTypeEnum]
+  ): ErrorConnection!
   trigger: Trigger
   was_successful: Boolean!
 }
@@ -6729,7 +8006,20 @@ input UpdateTwoFactorAuthenticationBackupCodesInput {
 type UpdateTwoFactorAuthenticationBackupCodesPayload implements MutationResult {
   # A unique identifier for the client performing the mutation.
   clientMutationId: String
-  errors(types: [ErrorTypeEnum]): ErrorConnection!
+  errors(
+    # Returns the elements in the list that come after the specified cursor.
+    after: String
+
+    # Returns the elements in the list that come before the specified cursor.
+    before: String
+
+    # Returns the first _n_ elements from the list.
+    first: Int
+
+    # Returns the last _n_ elements from the list.
+    last: Int
+    types: [ErrorTypeEnum]
+  ): ErrorConnection!
   me: User
   was_successful: Boolean!
 }
@@ -6751,7 +8041,20 @@ input UpdateTwoFactorAuthenticationCredentialsInput {
 type UpdateTwoFactorAuthenticationCredentialsPayload implements MutationResult {
   # A unique identifier for the client performing the mutation.
   clientMutationId: String
-  errors(types: [ErrorTypeEnum]): ErrorConnection!
+  errors(
+    # Returns the elements in the list that come after the specified cursor.
+    after: String
+
+    # Returns the elements in the list that come before the specified cursor.
+    before: String
+
+    # Returns the first _n_ elements from the list.
+    first: Int
+
+    # Returns the last _n_ elements from the list.
+    last: Int
+    types: [ErrorTypeEnum]
+  ): ErrorConnection!
   me: User
   was_successful: Boolean!
 }
@@ -6768,7 +8071,20 @@ input UpdateUserEmailInput {
 type UpdateUserEmailPayload implements MutationResult {
   # A unique identifier for the client performing the mutation.
   clientMutationId: String
-  errors(types: [ErrorTypeEnum]): ErrorConnection!
+  errors(
+    # Returns the elements in the list that come after the specified cursor.
+    after: String
+
+    # Returns the elements in the list that come before the specified cursor.
+    before: String
+
+    # Returns the first _n_ elements from the list.
+    first: Int
+
+    # Returns the last _n_ elements from the list.
+    last: Int
+    types: [ErrorTypeEnum]
+  ): ErrorConnection!
   me: User
   was_successful: Boolean!
 }
@@ -6805,6 +8121,49 @@ type UpdateUserPasswordPayload {
   clientMutationId: String
   errors: Hash
   me: User
+}
+
+# Autogenerated input type of Upvote
+input UpvoteInput {
+  # A unique identifier for the client performing the mutation.
+  clientMutationId: String
+  hacktivity_item_id: ID!
+}
+
+# Autogenerated return type of Upvote
+type UpvotePayload implements MutationResult {
+  # A unique identifier for the client performing the mutation.
+  clientMutationId: String
+  errors(
+    # Returns the elements in the list that come after the specified cursor.
+    after: String
+
+    # Returns the elements in the list that come before the specified cursor.
+    before: String
+
+    # Returns the first _n_ elements from the list.
+    first: Int
+
+    # Returns the last _n_ elements from the list.
+    last: Int
+    types: [ErrorTypeEnum]
+  ): ErrorConnection!
+  hacktivity_item: HacktivityItemInterface
+  new_vote: VoteEdge
+  votes(
+    # Returns the elements in the list that come after the specified cursor.
+    after: String
+
+    # Returns the elements in the list that come before the specified cursor.
+    before: String
+
+    # Returns the first _n_ elements from the list.
+    first: Int
+
+    # Returns the last _n_ elements from the list.
+    last: Int
+  ): VoteConnection
+  was_successful: Boolean!
 }
 
 # A HackerOne user
@@ -6846,6 +8205,7 @@ type User implements Node & ResourceInterface {
     # Returns the last _n_ elements from the list.
     last: Int
   ): BountyConnection
+  calendar_token: String
   created_at: DateTime!
   demo_hacker: Boolean!
   disabled: Boolean!
@@ -6996,7 +8356,7 @@ type User implements Node & ResourceInterface {
 
     # Returns the last _n_ elements from the list.
     last: Int
-  ): UserSessionConnectionType
+  ): UserSessionConnection
   signal: Float
   signal_percentile: Float
   soft_launch_invitations(
@@ -7015,6 +8375,8 @@ type User implements Node & ResourceInterface {
     state: [InvitationStateEnum] = null
     team_handle: String = null
   ): SoftLaunchConnection
+  subscribed_for_monthly_digest: Boolean
+  subscribed_for_team_messages: Boolean
   swag(
     # Returns the elements in the list that come after the specified cursor.
     after: String
@@ -7102,6 +8464,12 @@ type UserEdge {
   node: User
 }
 
+# User Email Subscription Enum
+enum UserEmailSubscriptionEnum {
+  subscribed_for_monthly_digest
+  subscribed_for_team_messages
+}
+
 # Fields on which a collection of users can be ordered
 enum UserOrderField {
   reputation
@@ -7129,9 +8497,12 @@ type UserSession implements Node {
 }
 
 # The connection type for UserSession.
-type UserSessionConnectionType {
+type UserSessionConnection {
   # A list of edges.
   edges: [UserSessionEdge]
+
+  # A list of nodes.
+  nodes: [UserSession]
 
   # Information to aid in pagination.
   pageInfo: PageInfo!
@@ -7167,9 +8538,55 @@ input VerifyAccountRecoveryPhoneNumberInput {
 type VerifyAccountRecoveryPhoneNumberPayload implements MutationResult {
   # A unique identifier for the client performing the mutation.
   clientMutationId: String
-  errors(types: [ErrorTypeEnum]): ErrorConnection!
+  errors(
+    # Returns the elements in the list that come after the specified cursor.
+    after: String
+
+    # Returns the elements in the list that come before the specified cursor.
+    before: String
+
+    # Returns the first _n_ elements from the list.
+    first: Int
+
+    # Returns the last _n_ elements from the list.
+    last: Int
+    types: [ErrorTypeEnum]
+  ): ErrorConnection!
   me: User
   was_successful: Boolean!
+}
+
+# A Vote for a hacktivity item
+type Vote implements Node {
+  # The primary key from the database
+  _id: ID!
+  id: ID!
+  report: Report!
+  user: User!
+}
+
+# The connection type for Vote.
+type VoteConnection {
+  # A list of edges.
+  edges: [VoteEdge]
+
+  # A list of nodes.
+  nodes: [Vote]
+
+  # Information to aid in pagination.
+  pageInfo: PageInfo!
+
+  # Int
+  total_count: Int!
+}
+
+# An edge in a connection.
+type VoteEdge {
+  # A cursor for use in pagination.
+  cursor: String!
+
+  # The item at the end of the edge.
+  node: Vote
 }
 
 # VPN Credential for a user
@@ -7224,7 +8641,10 @@ enum WeaknessOrderField {
 # The connection type for Team.
 type WhitelistedTeamConnection {
   # A list of edges.
-  edges: [WhitelistedTeamInformationEdge]
+  edges: [WhitelistedTeamInformationEdgeType]
+
+  # A list of nodes.
+  nodes: [Team]
 
   # Information to aid in pagination.
   pageInfo: PageInfo!
@@ -7232,7 +8652,7 @@ type WhitelistedTeamConnection {
 }
 
 # An edge in a connection.
-type WhitelistedTeamInformationEdge {
+type WhitelistedTeamInformationEdgeType {
   # The participant's total bounty earned within the team
   bounty_earned: Float
 
